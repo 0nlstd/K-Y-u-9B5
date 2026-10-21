@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kỷ Yếu 9B5 📖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --cream: #f8f4e9;
+  --paper: #fffefa;
+  --brown: #593b2b;
+  --orange: #b94b24;
+  --blue: #c6e5fa;
+  --pink: #f6cedb;
+  --yellow: #fff0a0;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--brown);
+  font-family: 'Quicksand', sans-serif;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  padding: 15px 20px;
+  background: rgba(255, 253, 247, 0.97);
+  border-bottom: 3px dashed #dfcbb4;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand {
+  font: 25px 'Pacifico', cursive;
+  color: var(--orange);
+}
+
+.badge {
+  display: inline-block;
+  background: #ffddb0;
+  color: #99421e;
+  padding: 8px 14px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.hero {
+  text-align: center;
+  padding: 30px 18px 15px;
+}
+
+.hero h1 {
+  color: var(--orange);
+  font: clamp(32px, 8vw, 47px) 'Pacifico', cursive;
+  line-height: 1.5;
+  margin: 18px 0;
+}
+
+.hero p {
+  color: #7c6b5d;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.9;
+}
+
+.decor {
+  font-size: 23px;
+  margin: 15px;
+}
+
+.section-title {
+  text-align: center;
+  color: var(--orange);
+  font: clamp(27px, 7vw, 36px) 'Pacifico', cursive;
+  margin: 40px 12px 25px;
+}
+
+.photo-card {
+  position: relative;
+  margin: 25px 20px 35px;
+  padding: 14px 14px 20px;
+  background: var(--paper);
+  border-radius: 5px 8px 7px 9px;
+  box-shadow: 0 9px 24px #6d4b3015;
+  transform: rotate(-0.6deg);
+}
+
+.photo-card:nth-of-type(even) {
+  transform: rotate(0.7deg);
+}
+
+.tape {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 105px;
+  height: 28px;
+  background: #f4d7a7c9;
+  z-index: 2;
+}
+
+.photo {
+  display: block;
+  width: 100%;
+  height: 255px;
+  object-fit: cover;
+  border-radius: 5px;
+  background: #f1e7d7;
+  cursor: pointer;
+}
+
+.caption {
+  text-align: center;
+  font: 24px 'Pacifico', cursive;
+  color: var(--brown);
+  margin: 15px 4px 5px;
+  line-height: 1.6;
+}
+
+.hint {
+  text-align: center;
+  font-size: 13px;
+  color: #948475;
+  margin-top: 10px;
+}
+
+.memory-card {
+  position: relative;
+  margin: 20px 25px;
+  padding: 22px 18px;
+  background: #fffdf7;
+  border: 2px dashed #dfc5a9;
+  border-radius: 17px;
+}
+
+.memory-card h3 {
+  color: var(--orange);
+  font: 23px 'Pacifico', cursive;
+  line-height: 1.6;
+  margin: 5px 0 12px;
+}
+
+.memory-card p {
+  font-size: 14px;
+  color: #786858;
+  line-height: 1.9;
+  margin-bottom: 0;
+}
+
+.memory-icon {
+  font-size: 25px;
+}
+
+.sticker {
+  position: absolute;
+  right: 15px;
+  top: -17px;
+  font-size: 28px;
+}
+
+.quote {
+  margin: 30px 22px;
+  padding: 25px 18px;
+  text-align: center;
+  background: #f8e6c8;
+  border-radius: 18px;
+  color: #7e6249;
+  line-height: 1.9;
+}
+
+.quote strong {
+  display: block;
+  font: 26px 'Pacifico', cursive;
+  color: var(--orange);
+  margin-bottom: 10px;
+}
+
+footer {
+  margin-top: 45px;
+  padding: 30px 18px;
+  text-align: center;
+  background: #fffaf0;
+  border-top: 3px dashed #dfcbb4;
+  color: #7c6b5d;
+  font-size: 13px;
+  line-height: 2;
+}
+
+footer .signature {
+  color: var(--orange);
+  font: 25px 'Pacifico', cursive;
+}
+
+.zoom {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  background: #241c18ed;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.zoom img {
+  max-width: 100%;
+  max-height: 85vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.zoom .close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  color: white;
+  font-size: 35px;
+  cursor: pointer;
+}
+
+@media (min-width: 650px) {
+  .photo-card,
+  .memory-card,
+  .quote {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .photo {
+    height: 350px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="brand">📖 Kỷ Yếu 9B5</div>
+  <span class="badge">Niên khóa 2026 - 2027</span>
+</header>
+
+<section class="hero">
+  <span class="badge">🌷 NHỮNG NĂM THÁNG THANH XUÂN 🌷</span>
+
+  <div class="decor">🎀 🧸 ⭐ 🩵 ⭐ 🧸 🎀</div>
+
+  <h1>Tập Thể Lớp 9B5</h1>
+
+  <p>
+    GVCN: Cô Nguyễn Thị Phương Luyến 💗<br>
+    Những ngày tháng thanh xuân đẹp nhất
+  </p>
+
+  <div class="decor">📸 🌷 💌 🌷 📸</div>
+</section>
+
+<!-- ẢNH TẬP THỂ ĐẦU TRANG -->
+<h2 class="section-title">🩵 Đại Gia Đình 9B5</h2>
+
+<div class="photo-card">
+  <span class="tape"></span>
+
+  <img
+    class="photo"
+    src="https://placehold.co/900x550/f1e7d7/9c7053?text=Anh+Tap+The+9B5"
+    alt="Ảnh tập thể lớp 9B5"
+    onclick="zoomImage(this.src)">
+
+  <div class="caption">Đại gia đình 9B5 bên nhau 💗</div>
+  <div class="hint">🔍 Bấm vào ảnh để phóng to</div>
+</div>
+
+<!-- KHO KỶ NIỆM -->
+<h2 class="section-title">Kho Kỷ Niệm 📸</h2>
+
+<div class="photo-card">
+  <span class="tape"></span>
+
+  <img
+    class="photo"
+    src="https://placehold.co/900x550/f1e7d7/9c7053?text=Nhung+Ngay+Ben+Nhau"
+    alt="Những ngày bên nhau"
+    onclick="zoomImage(this.src)">
+
+  <div class="caption">Những ngày bên nhau 🫶</div>
+  <div class="hint">🔍 Bấm vào ảnh để phóng to</div>
+</div>
+
+<div class="photo-card">
+  <span class="tape"></span>
+
+  <img
+    class="photo"
+    src="https://placehold.co/900x550/f1e7d7/9c7053?text=Ky+Niem+9B5"
+    alt="Kỷ niệm lớp 9B5"
+    onclick="zoomImage(this.src)">
+
+  <div class="caption">Kỷ niệm 9B5 ❤️</div>
+  <div class="hint">🔍 Bấm vào ảnh để phóng to</div>
+</div>
+
+<div class="photo-card">
+  <span class="tape"></span>
+
+  <img
+    class="photo"
+    src="https://placehold.co/900x550/f1e7d7/9c7053?text=Tuoi+Hoc+Tro"
+    alt="Tuổi học trò"
+    onclick="zoomImage(this.src)">
+
+  <div class="caption">Tuổi học trò 🌷</div>
+  <div class="hint">🔍 Bấm vào ảnh để phóng to</div>
+</div>
+
+<!-- GÓC KỶ NIỆM -->
+<h2 class="section-title">Góc Kỷ Niệm 🌷</h2>
+
+<div class="memory-card">
+  <span class="sticker">⭐</span>
+  <div class="memory-icon">🩵 🎀</div>
+
+  <h3>Thanh xuân mang tên 9B5</h3>
+
+  <p>
+    Có những ngày bình thường rồi sẽ trở thành kỷ niệm.
+    Có những người bạn rồi sẽ trở thành một phần thanh xuân.
+    Cảm ơn vì chúng ta đã gặp nhau và cùng viết nên những
+    tháng ngày thật đẹp. 💗
+  </p>
+</div>
+
+<div class="memory-card">
+  <span class="sticker">🌷</span>
+  <div class="memory-icon">📚 🧸</div>
+
+  <h3>Những ngày tháng không thể quên</h3>
+
+  <p>
+    Là những buổi học cùng nhau, những lần cười đùa trong lớp,
+    những giờ ra chơi và cả những khoảnh khắc ngốc nghếch.
+    Sau này nhớ lại, mong chúng ta vẫn có thể mỉm cười. 🫶
+  </p>
+</div>
+
+<div class="memory-card">
+  <span class="sticker">💗</span>
+  <div class="memory-icon">👩🏻‍🏫 💐</div>
+
+  <h3>Gửi cô Nguyễn Thị Phương Luyến</h3>
+
+  <p>
+    Cảm ơn cô đã dạy dỗ, quan tâm và đồng hành cùng tập thể 9B5.
+    Chúng em sẽ luôn trân trọng những bài học và những kỷ niệm
+    dưới mái trường thân yêu. 💐
+  </p>
+</div>
+
+<div class="memory-card">
+  <span class="sticker">🧸</span>
+  <div class="memory-icon">💌 🩵</div>
+
+  <h3>Mãi là một gia đình</h3>
+
+  <p>
+    Mai này mỗi người có thể đi trên một con đường khác nhau,
+    nhưng mong rằng khi nhắc đến 9B5, chúng ta vẫn nhớ về nhau
+    bằng những nụ cười và những điều tốt đẹp nhất. ⭐
+  </p>
+</div>
+
+<div class="quote">
+  <strong>Thanh Xuân Mang Tên 9B5</strong>
+  Một thời để nhớ, một đời để thương.
+  <br>
+  🌷 Niên khóa 2026 - 2027 🌷
+</div>
+
+<footer>
+  <div class="signature">Made with love 🩵</div>
+  Kỷ yếu tập thể lớp 9B5
+  <br>
+  Niên khóa 2026 - 2027
+  <br>
+  🌷 Lưu giữ những điều đẹp nhất 🌷
+</footer>
+
+<div class="zoom" id="zoom" onclick="closeZoom()">
+  <span class="close">×</span>
+  <img id="zoomedImage" src="" alt="Ảnh phóng to">
+</div>
+
+<script>
+function zoomImage(src) {
+  document.getElementById('zoomedImage').src = src;
+  document.getElementById('zoom').style.display = 'flex';
+}
+
+function closeZoom() {
+  document.getElementById('zoom').style.display = 'none';
+}
+</script>
+
+</body>
+</html>
